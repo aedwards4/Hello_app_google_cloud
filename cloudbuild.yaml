@@ -1,11 +1,10 @@
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args:
-      ["build", "-t", "gcr.io/$GCP-flaskworldapp1-347600/flaskworldapp1", "."]
+    args: ["build", "-t", "gcr.io/flaskworldapp1-347600/flaskworldapp1", "."]
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$GCP-flaskworldapp1-347600/flaskworldapp1"]
+    args: ["push", "gcr.io/flaskworldapp1-347600/flaskworldapp1"]
   # Deploy container image to Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
@@ -15,7 +14,7 @@ steps:
         "deploy",
         "flaskworldapp1",
         "--image",
-        "gcr.io/$GCP-flaskworldapp1-347600/flaskworldapp1",
+        "gcr.io/flaskworldapp1-347600/flaskworldapp1",
         "--region",
         "us-central1",
         "--platform",
@@ -24,4 +23,4 @@ steps:
         "80",
       ]
 images:
-  - gcr.io/$GCP-flaskworldapp1-347600/flaskworldapp1
+  - gcr.io/flaskworldapp1-347600/flaskworldapp1
