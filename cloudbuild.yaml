@@ -24,4 +24,4 @@ steps:
         "80",
       ]
 images:
-  - gcr.io$GCP-/flaskworldapp1-347600/flaskworldapp1
+  - gcr.io/$GCP-flaskworldapp1-347600/flaskworldapp1
